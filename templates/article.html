@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'components/head.html' %}
+
+    <title>{{post.title}}</title>
+</head>
+<body>
+
+    {% include 'components/nav.html' %}
+    <div class="article__main container">
+        <div class="article_view">
+          <h1>{{post.title}}</h1>
+          <p class="light">Published on {{post.date}}</p>
+      
+          <img
+            src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/media/{{post.image}}"
+            alt=""
+          />
+      
+          <p class="content">{{post.content|safe}}</p>
+      
+          <br/>
+      
+          {% include 'components/js.html' %}
+
+</html>

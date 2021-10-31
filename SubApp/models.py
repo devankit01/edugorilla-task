@@ -25,7 +25,7 @@ class Post(models.Model):
     category=models.ManyToManyField(Category,related_name='category')
     image=models.ImageField(upload_to='images/',blank=True)
     likes=models.ManyToManyField(User,related_name='likes',blank=True)
-    author=models.OneToOneField(User,on_delete=models.CASCADE)
+    author=models.ForeignKey(User,on_delete=models.CASCADE)
     
     def __str__(self):
         return self.title

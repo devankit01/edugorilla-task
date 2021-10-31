@@ -7,11 +7,15 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
+.article__main{
+  display:flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+}
 .article_view {
     width: 100%;
     margin: 30px auto;
-    /* border: 1px solid #000;
-      box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1); */
   }
   .article_view img {
     width: 100%;
@@ -119,4 +123,48 @@
     height: auto;
     margin: 25px auto;
     padding: 0 10px;
+  }
+
+
+
+  @media (max-width: 858px) {
+
+
+    .cardContainer {
+      width: 87%;
+      height: auto;
+    }
+    .card p {
+      font-size: 14px;
+    }
+    .article__main{
+      display:flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      width: 90%;
+    }
+    .article_view {
+      width: 100%;
+    }
+    .article_view h1 {
+      font-size: 24px;
+    }
+    .article_view h2 {
+      font-size: 18px;
+    }
+    .article_author .author_right {
+      margin: 18px 10px;
+    }
+    .article_author .author_right p {
+      font-size: 13px;
+    }
+    .light {
+      margin: -6px -5px 0 0;
+      font-size: 14px;
+    }
+    .article_view img {
+      width: 100%;
+      margin: 10px 0px;
+    }
+
   }
