@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+ 
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+.article_view {
+    width: 100%;
+    margin: 30px auto;
+    /* border: 1px solid #000;
+      box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1); */
+  }
+  .article_view img {
+    width: 100%;
+    margin: 8px 0px;
+  }
+  .article__part{
+    width: 35%;
+    padding:133px 30px;
+  }
+  .article_view h1 {
+    font-size: 44px;
+    padding: 0;
+    margin: 0px 0px;
+  }
+  .article_author {
+    display: flex;
+    margin: 8px 0px;
+  }
+  .article_view h1,h2,h3,h4,h5,h6 {
+    margin: 5px 0px;
+  }
+  
+  .content{
+         font-size: 30px!important;
+  }
+  .article_view p a {
+    color: #48c290 !important;
+  
+  }
+  .article_view ul,.article_view ol{
+      margin : 8px 4%;
+  }
