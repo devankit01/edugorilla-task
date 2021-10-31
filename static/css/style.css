@@ -48,7 +48,10 @@
   .article_view ul,.article_view ol{
       margin : 8px 4%;
   }
-
+  i{
+    font-size: 16px;
+    font-weight: bold;
+  }
 
   /* Cards */
   .card {

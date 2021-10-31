@@ -15,7 +15,7 @@
     <div class="article__main container">
         <div class="article_view">
           <h1>{{post.title}}</h1>
-          <p class="light">Published on {{post.date}}</p>
+          <p class="light">Published on {{post.date}} by {{post.author}}</p>
       
           <img
             src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/media/{{post.image}}"
@@ -25,7 +25,46 @@
           <p class="content">{{post.content|safe}}</p>
       
           <br/>
-      
+            
+          <button type="button" class="btn btn-outline-primary py-2">Upvote <i class="bi bi-caret-up-fill"></i></button>
+          <button type="button" class="btn btn-outline-primary py-2 mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Comment
+           </button>
+          <br />
+          <br />
+          <h4>Comments</h4>
+           <div class="comment__ui my-3">
+               <h5 class="m-0 p-0">Informative Post</h5>
+               <p>-Ankit G.</p>
+           </div>
+          <div>
+             
+             
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Comment Now</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="" method="post">
+                        <div class="form-group">
+                            <label for="exampleTextarea" class="form-label mt-4">Write Comment</label>
+                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                          </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-outline-primary">Add Comment</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
           {% include 'components/js.html' %}
 
 </html>
