@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Edugorilla</a>
+      <a class="navbar-brand" href="{% url 'index' %}">Edugorilla</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -8,17 +8,22 @@
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home
+            <a class="nav-link active" href="{% url 'index' %}">Home
             </a>
           </li>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
             <div class="dropdown-menu">
+
+              {% if request.user.is_authenticated %}
+              <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+              {% else %}
               <a class="dropdown-item" href="{% url 'signup' %}">Register</a>
               <a class="dropdown-item" href="{% url 'signin' %}">User Login</a>
               <a class="dropdown-item" href="/admin">Author Login</a>
-
+              {% endif %}
 
           </li>
         </ul>

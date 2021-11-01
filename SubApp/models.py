@@ -35,12 +35,8 @@ class Post(models.Model):
 
 
     
-class comment(models.Model):
+class CommentModel(models.Model):
     post=models.ForeignKey(Post,on_delete=models.CASCADE)  
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    comment=models.TextField()
+    text=models.TextField()
     datetime=models.DateTimeField(auto_now_add=True)
-    class Meta:
-        ordering=('datetime',)
-    def __str__(self):
-        return f'comment by: {self.user} on {self.post}'

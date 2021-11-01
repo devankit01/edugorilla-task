@@ -25,21 +25,31 @@
           <p class="content">{{post.content|safe}}</p>
       
           <br/>
-            
-          <button type="button" class="btn btn-outline-primary py-2">Upvote <i class="bi bi-caret-up-fill"></i></button>
+        {% if  request.user.is_authenticated %}
+        <div>
+          <a type="button" class="btn btn-outline-primary py-2" id="like_btn" href="{% url 'likesPost' slug=post.slug %}">Upvote <i class="bi bi-caret-up-fill"></i> | {{likes}}</a>
           <button type="button" class="btn btn-outline-primary py-2 mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Comment
            </button>
           <br />
           <br />
           <h4>Comments</h4>
+          {% for i in comments %}
            <div class="comment__ui my-3">
-               <h5 class="m-0 p-0">Informative Post</h5>
-               <p>-Ankit G.</p>
+               <h5 class="m-0 p-0">{{i.text}}</h5>
+               <p>-{{i.user.first_name}} {{i.user.last_name}}</p>
            </div>
+           {% endfor %}
           <div>
-             
-             
+             </div>
+             {% else %}
+             <div class="alert alert-dismissible alert-danger">
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              <!-- <h4 class="alert-heading">Warning!</h4> -->
+              <p class="mb-0">Please login for Like and Comment <a href="{% url 'signin' %}">Signin</a></p>
+            </div>
+        
+             {% endif %}
               
               <!-- Modal -->
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -50,16 +60,18 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form action="" method="post">
+                      <form  method="POST">
+                        {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleTextarea" class="form-label mt-4">Write Comment</label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleTextarea" rows="3" name="comment"></textarea>
                           </div>
-                      </form>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-outline-primary">Add Comment</button>
+                      <button type="submit" class="btn btn-outline-primary">Add Comment</button>
+                    </form>
+
                     </div>
                   </div>
                 </div>
